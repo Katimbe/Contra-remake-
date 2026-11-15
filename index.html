@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>IRON CANOPY — Operation Emberfall</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #05080c; overflow: hidden; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center;
+         font-family: 'Trebuchet MS', 'Segoe UI', sans-serif; color: #9fb4c2; user-select: none; -webkit-user-select: none; touch-action: none; }
+  #wrap { position: relative; }
+  canvas { display: block; background: #000; box-shadow: 0 0 60px rgba(0, 0, 0, .9), 0 0 0 2px #1c2a33; }
+  #help { margin-top: 10px; font-size: 13px; letter-spacing: .04em; text-align: center; }
+  #help b { color: #ff8a2a; font-weight: 700; }
+  #touch { position: absolute; inset: 0; display: none; pointer-events: none; }
+  #touch .b { position: absolute; pointer-events: auto; width: 13%; aspect-ratio: 1; border-radius: 50%;
+              background: rgba(255, 255, 255, .10); border: 2px solid rgba(255, 255, 255, .28); color: #fff;
+              display: flex; align-items: center; justify-content: center; font-size: 3.2vmin; font-weight: 700; }
+  #touch .b.on { background: rgba(255, 138, 42, .45); }
+  @media (pointer: coarse) { #touch { display: block; } #help { display: none; } }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="1280" height="720"></canvas>
+  <div id="touch">
+    <div class="b" data-k="ArrowLeft"  style="left:2%;  bottom:14%">◀</div>
+    <div class="b" data-k="ArrowRight" style="left:26%; bottom:14%">▶</div>
+    <div class="b" data-k="ArrowUp"    style="left:14%; bottom:30%">▲</div>
+    <div class="b" data-k="ArrowDown"  style="left:14%; bottom:0%">▼</div>
+    <div class="b" data-k="KeyX"       style="right:16%; bottom:6%">FIRE</div>
+    <div class="b" data-k="KeyZ"       style="right:2%;  bottom:24%">JUMP</div>
+    <div class="b" data-k="Enter"      style="right:2%;  top:2%; width:9%">▶❚❚</div>
+  </div>
+</div>
+<div id="help">
+  <b>A/D ◀ ▶</b> move &nbsp;·&nbsp; <b>W/S ▲ ▼</b> aim / crouch &nbsp;·&nbsp; <b>Z / K / Space</b> jump (again in the air = jet boost, ▼+jump = drop)
+  &nbsp;·&nbsp; <b>X / J</b> fire &nbsp;·&nbsp; <b>Shift</b> hold position &nbsp;·&nbsp; <b>P</b> pause &nbsp;·&nbsp; <b>M</b> mute &nbsp;·&nbsp; <b>Enter</b> start
+</div>
+<script src="assets/sprites/meta.js"></script>
+<script src="src/audio.js"></script>
+<script src="src/level.js"></script>
+<script src="src/game.js"></script>
+</body>
+</html>
